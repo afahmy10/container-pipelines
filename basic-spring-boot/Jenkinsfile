@@ -14,6 +14,8 @@ openshift.withCluster() {
   env.DEV = "${env.NAMESPACE_DEV}"
   env.STAGE = "${env.NAMESPACE_STAGE}"
   env.PROD = "${env.NAMESPACE_PROD}"
+  env.APPLICATION_SOURCE_REPO= "https://github.com/redhat-cop/spring-rest.git"
+  env.APPLICATION_SOURCE_REF="master"
 }
 
 pipeline {
