@@ -9,7 +9,9 @@ retriever: modernSCM(
 openshift.withCluster() {
   env.NAMESPACE = openshift.project()
   env.POM_FILE = env.BUILD_CONTEXT_DIR ? "${env.BUILD_CONTEXT_DIR}/pom.xml" : "pom.xml"
-  echo "Starting Pipeline for ${env.APP_NAME}..."
+  echo "Starting Pipeline for ${env.APPLICATION_NAME}..."
+  echo "NAMESPACE_BUILD is for ${env.NAMESPACE_BUILD}..."
+  echo "NAMESPACE_DEV is ${env.NAMESPACE_DEV}..."
   env.BUILD = "${env.NAMESPACE_BUILD}"
   env.DEV = "${env.NAMESPACE_DEV}"
   env.STAGE = "${env.NAMESPACE_STAGE}"
