@@ -9,13 +9,14 @@ retriever: modernSCM(
 openshift.withCluster() {
   env.NAMESPACE = openshift.project()
   env.POM_FILE = env.BUILD_CONTEXT_DIR ? "${env.BUILD_CONTEXT_DIR}/pom.xml" : "pom.xml"
-  echo "Starting Pipeline for ${env.APPLICATION_NAME}..."
+  env.APP_NAME= "basic-spring-boot"
+  echo "Starting Pipeline for ${env.APP_NAME}..."
   echo "NAMESPACE_BUILD is for ${env.NAMESPACE_BUILD}..."
   echo "NAMESPACE_DEV is ${env.NAMESPACE_DEV}..."
-  env.BUILD = "${env.NAMESPACE_BUILD}"
-  env.DEV = "${env.NAMESPACE_DEV}"
-  env.STAGE = "${env.NAMESPACE_STAGE}"
-  env.PROD = "${env.NAMESPACE_PROD}"
+  env.BUILD = "basic-spring-boot-build"
+  env.DEV = "basic-spring-boot-dev"
+  env.STAGE = "basic-spring-boot-stage"
+  env.PROD = "basic-spring-boot-prod"
   env.APPLICATION_SOURCE_REPO= "https://github.com/redhat-cop/spring-rest.git"
   env.APPLICATION_SOURCE_REF="master"
 }
