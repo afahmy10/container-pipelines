@@ -65,6 +65,7 @@ pipeline {
       steps {
         // Copy the resulting artifacts into common directory
         sh """
+          pwd
           ls target/*
           rm -rf oc-build && mkdir -p oc-build/deployments
           for t in \$(echo "jar;war;ear" | tr ";" "\\n"); do
